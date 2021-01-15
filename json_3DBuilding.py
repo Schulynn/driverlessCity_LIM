@@ -79,7 +79,7 @@ def building_3D2SQLite_database(building_3D_db,db_fp):
 if __name__=="__main__":    
     json_3DBuilding_fp=r'C:\Users\richi\omen-richiebao_s\omen_github\driverlessCity_LIM\data\raw data\Chicago_3dbuildings.json'
     epsg=32616
-    boundary=[(-87.630609, 41.830851),(-87.603174, 41.831122),(-87.641234, 41.847334),(-87.603020, 41.847229)]
+    boundary=[(-87.630609, 41.830851),(-87.603174, 41.831122),(-87.603020, 41.847229),(-87.641234, 41.847334)]
     building_3D_db=json_3DBuilding2gp(json_3DBuilding_fp,epsg,boundary)
     
     db_fp=r'C:\Users\richi\omen-richiebao_s\omen_github\driverlessCity_LIM\database\driverlesscity_sqlit.db'
