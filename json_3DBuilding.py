@@ -26,7 +26,8 @@ def json_3DBuilding2gp(json_3DBuilding_fp,epsg=None,boundary=None):
     
     for column in feature_columns:
         building_3D[column]=building_3D.features.apply(lambda row:row[column])
-        
+    
+    print(building_3D.geometry)
     building_3D['geometry']=building_3D.geometry.apply(shape)  
     
     mask=Polygon(boundary)
@@ -77,10 +78,10 @@ def building_3D2SQLite_database(building_3D_db,db_fp):
 
 
 if __name__=="__main__":    
-    json_3DBuilding_fp=r'C:\Users\richi\omen-richiebao_s\omen_github\driverlessCity_LIM\data\raw data\Chicago_3dbuildings.json'
+    json_3DBuilding_fp=r'C:\Users\richi\omen-richiebao\omen_github\driverlessCity_LIM\data\raw data\Chicago_3dbuildings.json'
     epsg=32616
     boundary=[(-87.630609, 41.830851),(-87.603174, 41.831122),(-87.603020, 41.847229),(-87.641234, 41.847334)]
     building_3D_db=json_3DBuilding2gp(json_3DBuilding_fp,epsg,boundary)
     
     db_fp=r'C:\Users\richi\omen-richiebao_s\omen_github\driverlessCity_LIM\database\driverlesscity_sqlit.db'
-    building_3D2SQLite_database(building_3D_db,db_fp)
+    #building_3D2SQLite_database(building_3D_db,db_fp)
